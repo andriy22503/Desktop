@@ -1,0 +1,70 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+
+<!-- Контейнер -->
+<div id="container">
+
+<!-- Шапка -->
+<div id="header">
+<div class="header-left">
+<a href="{$mainpage}"><img src="{$tpl_path}img/logo.png" alt="{$store_name}" /></a>
+</div>
+<div class="header-center" itemscope itemtype="http://schema.org/Organization">
+<span itemprop="name">{$smarty.const.STORE_NAME}</span>
+<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+{$smarty.const.STORE_NAME_ADDRESS}
+</div>
+<h4><a href="tel:{$smarty.const.STORE_TELEPHONE}"><i class="fa fa-phone"></i> <span itemprop="telephone">{$smarty.const.STORE_TELEPHONE}</span></a>, <a href="contact_us.html"><i class="fa fa-pencil"></i> {#text_contact_us#}</a></h4>
+</div>
+<div class="header-right">
+&nbsp;
+</div>
+<div class="clear"></div>
+</div>
+<!-- /Шапка -->
+
+<!-- Меню -->
+<div id="menu">
+</div>
+<!-- /Меню -->
+
+<!-- Навигация -->
+<div id="navigation">
+</div>
+<!-- /Навигация -->
+
+<!-- Обёртка для центра, левой и правой колонки -->
+<div id="wrapper">
+<!-- Центр -->
+<div id="content">
+{$main_content}
+</div>
+<!-- /Центр -->
+
+<!-- Левая колонка -->
+<div id="left">
+</div>
+<!-- /Левая колонка -->
+
+<!-- Правая колонка -->
+<div id="right">
+{$box_CART}
+</div>
+<!-- /Правая колонка -->
+</div>
+<!-- /Обёртка для центра, левой и правой колонки -->
+
+<!-- Низ -->
+<div id="footer">
+{if $BANNER}
+<p>
+{$BANNER}
+</p>
+{/if}
+<p>
+<a href="vam_rss2_info.php"><img src="images/rss.png" alt="RSS" /></a>
+</p>
+</div>
+<!-- /Низ -->
+
+</div>
+<!-- /Контейнер -->

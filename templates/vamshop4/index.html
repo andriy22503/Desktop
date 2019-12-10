@@ -1,0 +1,45 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{config_load file="$language/lang_$language.conf" section="boxes"}
+<div id="contentWrapper">
+
+    {if $smarty.const.DEFAULT_NAVIGATION == "slide_menu"}
+    {include file="{$smarty.const.DIR_FS_CATALOG}{$tpl_path}components/navbar/navbar_slide_menu.html"}
+    {elseif $smarty.const.DEFAULT_NAVIGATION == "fullscreen_menu"}
+    {include file="{$smarty.const.DIR_FS_CATALOG}{$tpl_path}components/header/header.html"}
+    {include file="{$smarty.const.DIR_FS_CATALOG}{$tpl_path}components/navbar/navbar.html"}
+    {/if}    
+
+
+
+<div class="container">
+
+<div class="mainWrapper">
+
+{$box_DOWNLOADS}
+
+{if $smarty.SERVER.REQUEST_URI == '/'}
+{include file="{$smarty.const.DIR_FS_CATALOG}{$tpl_path}components/slider/{$smarty.const.DEFAULT_SLIDER}.html"}
+{/if}
+
+<div class="mainContent">
+
+{if $navtrail}
+<div id="navigation" class="text-muted" itemscope itemtype="http://schema.org/BreadcrumbList">
+{$navtrail}
+</div>
+{/if}
+
+{$main_content}
+</div>
+
+</div>
+
+</div>
+
+    {include file="{$smarty.const.DIR_FS_CATALOG}{$tpl_path}components/footer/footer.html"}    
+
+</div>
+
+{if $smarty.const.DEFAULT_NAVIGATION == "fullscreen_menu"}
+{include file="{$smarty.const.DIR_FS_CATALOG}{$tpl_path}components/menu/top-menu.html"}
+{/if}

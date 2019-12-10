@@ -1,0 +1,111 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+
+<!-- Контейнер -->
+<div id="container">
+
+<!-- Шапка -->
+<div id="header">
+<div class="header-left">
+<a href="{$mainpage}"><img src="{$tpl_path}img/logo.png" alt="{$store_name}" /></a>
+</div>
+<div class="header-center" itemscope itemtype="http://schema.org/Organization">
+<span itemprop="name">{$smarty.const.STORE_NAME}</span>
+<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+{$smarty.const.STORE_NAME_ADDRESS}
+</div>
+<h4><a href="tel:{$smarty.const.STORE_TELEPHONE}"><i class="fa fa-phone"></i> <span itemprop="telephone">{$smarty.const.STORE_TELEPHONE}</span></a>, <a href="contact_us.html"><i class="fa fa-pencil"></i> {#text_contact_us#}</a></h4>
+</div>
+<div class="header-right">
+&nbsp;
+</div>
+<div class="clear"></div>
+</div>
+<!-- /Шапка -->
+
+<!-- Меню -->
+<div id="menu">
+<ul>
+<li{$main_current}><a href="{$mainpage}"><span>{#text_mainpage#}</span></a></li>
+{if $account}{if $smarty.session.customer_id}
+<li{$account_current}><a href="{$account}"><span>{#link_account#}</span></a></li>
+{/if}{/if}
+<li{$cart_current}><a href="{$cart}"><span>{#link_cart#}</span></a></li>
+<li{$checkout_current}><a href="{$checkout}"><span>{#link_checkout#}</span></a></li>
+{if $smarty.session.customer_id}
+<li{$logoff_current}><a href="{$logoff}"><span>{#link_logoff#}</span></a></li>
+{else}
+<li{$login_current}><a href="{$login}"><span>{#link_login#}</span></a></li>
+{/if}
+</ul>
+</div>
+<!-- /Меню -->
+
+<!-- Навигация -->
+<div id="navigation" itemscope itemtype="http://schema.org/BreadcrumbList">
+<span>{$navtrail}</span>
+</div>
+<!-- /Навигация -->
+
+<!-- Обёртка для центра, левой и правой колонки -->
+<div id="wrapper">
+<!-- Центр -->
+<div id="content">
+{$main_content}
+</div>
+<!-- /Центр -->
+
+<!-- Левая колонка -->
+<div id="left">
+{$box_CATEGORIES}
+{$box_SEARCH}
+{$box_FILTERS}
+{$box_CONTENT}
+{$box_INFORMATION}
+{$box_ADD_QUICKIE}
+{$box_LAST_VIEWED}
+{$box_REVIEWS}
+{$box_SPECIALS}
+{$box_FEATURED}
+{$box_LATESTNEWS}
+{$box_ARTICLES}
+{$box_ARTICLESNEW}
+{$box_AUTHORS}
+</div>
+<!-- /Левая колонка -->
+
+<!-- Правая колонка -->
+<div id="right">
+{$box_CART}
+{$box_LOGIN}
+{$box_ADMIN}
+{$box_DOWNLOADS}
+{$box_AFFILIATE}
+{$box_WHATSNEW}
+{$box_NEWSLETTER}
+{$box_BESTSELLERS}
+{$box_INFOBOX}
+{$box_CURRENCIES}
+{$box_LANGUAGES}
+{$box_MANUFACTURERS}
+{$box_MANUFACTURERS_INFO}
+{$box_FAQ}
+</div>
+<!-- /Правая колонка -->
+</div>
+<!-- /Обёртка для центра, левой и правой колонки -->
+
+<!-- Низ -->
+<div id="footer">
+{if $BANNER}
+<p>
+{$BANNER}
+</p>
+{/if}
+<p>
+<a href="vam_rss2_info.php"><img src="images/rss.png" alt="RSS" /></a>
+</p>
+</div>
+<!-- /Низ -->
+
+</div>
+<!-- /Контейнер -->
